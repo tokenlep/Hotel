@@ -1,4 +1,6 @@
 ﻿using Hotel.AppData;
+using Hotel.Model;
+using System;
 using System.Linq;
 using System.Windows;
 
@@ -12,6 +14,8 @@ namespace Hotel.View.Windows
         public AuthorizationWindow()
         {
             InitializeComponent();
+
+            BlockingUserByDate();
         }
 
 
@@ -57,16 +61,39 @@ namespace Hotel.View.Windows
             }
             else
             {
-                Authorization();
+                
                 Feedback.Information("Вы успешно авторизовались!");
                 Close();
             }
-
         }
+
+        public void BlockingUserByDate()
+        {
+            foreach(var user in App.context.User.Where(u => u.RoleId == 2))
+            {
+                if(user.RegistrationDate.AddMonths(1) < DateTime.Now.Date && user.IsActivated == false)
+                {
+                    user.IsBlocked = true;
+                }
+            }
+            App.context.SaveChanges();
+        }
+
 
         public void Authorization()
         {
-
+            switch(App.currentUser.RoleId)
+            {
+                case 1: AdministratorWindow administratorWindow = new AdministratorWindow();
+                    administratorWindow.Show();
+                    break;
+                case 2: UserWindow userWindow = new UserWindow();
+                    userWindow.Show();
+                    break;
+                default: Feedback.Error("Роль пользователя не найдена! Доступ запрещен.");
+                    break;
+            }
+            Close();
 
         }
 
