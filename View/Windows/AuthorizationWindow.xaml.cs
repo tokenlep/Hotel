@@ -61,9 +61,7 @@ namespace Hotel.View.Windows
             }
             else
             {
-                
                 Feedback.Information("Вы успешно авторизовались!");
-                Close();
             }
         }
 
