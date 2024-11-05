@@ -102,6 +102,7 @@ namespace Hotel.View.Windows
             if (Validation() == true)
             {
                 Authentication();
+                Authorization();
             }
         }
     }
