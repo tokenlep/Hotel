@@ -9,8 +9,14 @@ namespace Hotel.View.Windows
     /// <summary>
     /// Логика взаимодействия для AuthorizationWindow.xaml
     /// </summary>
+    /// 
+
+    
+
     public partial class AuthorizationWindow : Window
     {
+        int loginAttemptCount = 0;
+
         public AuthorizationWindow()
         {
             InitializeComponent();
@@ -48,7 +54,16 @@ namespace Hotel.View.Windows
 
             if (App.currentUser == null)
             {
-                Feedback.Error($"Вы ввели неверный логин или пароль. Пожалуйста проверьте ещё раз введенные данные!");
+                loginAttemptCount++;
+
+                Feedback.Error($"Вы ввели неверный логин или пароль. Пожалуйста проверьте ещё раз введенные данные! Попытка: {loginAttemptCount} из 3");
+
+                if(loginAttemptCount == 3)
+                {
+                    App.currentUser.IsBlocked = true;
+                    loginAttemptCount = 0;
+                    Feedback.Error("Вы заблокированы ! Обратитесь к администратору !");
+                }
             }
             else if (App.currentUser.IsBlocked == true)
             {
@@ -62,6 +77,8 @@ namespace Hotel.View.Windows
             else
             {
                 Feedback.Information("Вы успешно авторизовались!");
+
+                Authorization();
             }
         }
 
@@ -100,7 +117,6 @@ namespace Hotel.View.Windows
             if (Validation() == true)
             {
                 Authentication();
-                Authorization();
             }
         }
     }
