@@ -20,9 +20,13 @@ namespace Hotel.View.Pages
     /// </summary>
     public partial class UsersListPage : Page
     {
+        const int USER_ROLE_ID = 2;
         public UsersListPage()
         {
+            
             InitializeComponent();
+            // Загрузка пользователей в список при открытии страницы 
+            UsersLv.ItemsSource = App.context.User.Where(u => u.RoleId == USER_ROLE_ID).ToList();
         }
 
         private void AddUserBtn_Click(object sender, RoutedEventArgs e)
@@ -31,6 +35,11 @@ namespace Hotel.View.Pages
         }
 
         private void UsersLv_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void SaveChangesBtn_Click(object sender, RoutedEventArgs e)
         {
 
         }
