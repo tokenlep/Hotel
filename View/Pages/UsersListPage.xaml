@@ -72,19 +72,21 @@
                 <TextBlock Grid.Row="6" Text="Пароль"/>
                 <TextBlock Grid.Row="8" Text="Дата регистрации"/>
                 <CheckBox Grid.Row="10" Grid.ColumnSpan="3" 
-                          Content="Заблокирован"/>
+                          Content="Заблокирован" IsChecked="{Binding IsBlocked}"/>
                 <CheckBox Grid.Row="12" Grid.ColumnSpan="3" 
                           Content="Сменить пароль"
-                          IsHitTestVisible="False"/>
+                          IsHitTestVisible="False" IsChecked="{Binding IsActivated}"/>
                     
                 <!--IsReadonly - поле только для чтения (нельзя редактировать)-->
                 <!--IsHitTestVisible - нельзя нажать на элемент-->
 
-                <TextBox Grid.Row="2" Grid.Column="2"/>
-                <TextBox Grid.Row="4" Grid.Column="2" IsReadOnly="True"/>
-                <PasswordBox Grid.Row="6" Grid.Column="2"/>
+                <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Fullname}"/>
+                <TextBox Grid.Row="4" Grid.Column="2" IsReadOnly="True" 
+                         Text="{Binding Login}"/>
+                <TextBox Grid.Row="6" Grid.Column="2" Text="{Binding Password}"/>
                 <DatePicker Grid.Row="8" Grid.Column="2" 
-                            IsHitTestVisible="False"/>
+                            IsHitTestVisible="False"
+                            Text="{Binding RegistrationDate}"/>
                 <Button Name="SaveChangesBtn" Grid.Row="14" 
                         Grid.ColumnSpan="3"
                         Content="Сохранить изменения" 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hotel.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,7 +37,7 @@ namespace Hotel.View.Pages
 
         private void UsersLv_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            UserDetailsGrid.DataContext = UsersLv.SelectedItem as User;
         }
 
         private void SaveChangesBtn_Click(object sender, RoutedEventArgs e)
