@@ -23,5 +23,15 @@ namespace Hotel.View.Windows
         {
             InitializeComponent();
         }
+
+        private void UserBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RoomsBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
