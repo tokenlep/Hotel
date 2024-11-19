@@ -31,28 +31,36 @@ namespace Hotel.View.Windows
             AddUser();
         }
 
-        public void AddUser()
-        {
+     public void AddUser()
+     {
             try
             {
-                User newUser = new User()
+                if (string.IsNullOrEmpty(FullnameTb.Text) || string.IsNullOrEmpty(LoginTb.Text) ||
+                    string.IsNullOrEmpty(PasswordPb.Password))
                 {
-                    Fullname = FullnameTb.Text,
-                    Login = LoginTb.Text,
-                    Password = PasswordPb.Password,
-                    RegistrationDate = DateTime.Now.Date,
-                    IsActivated = false,
-                    IsBlocked = false,
-                    RoleId=2
-                };
+                    Feedback.Warning("Все поля обязательно для заполнения ! Заполните каждое поле !");
+                }
 
-                App.context.User.Add(newUser);
-                App.context.SaveChanges();
+                else
+                        {
+                            User newUser = new User()
+                            {
+                                Fullname = FullnameTb.Text,
+                                Login = LoginTb.Text,
+                                Password = PasswordPb.Password,
+                                RegistrationDate = DateTime.Now.Date,
+                                IsActivated = false,
+                                IsBlocked = false,
+                                RoleId = 2
+                            };
 
-                Feedback.Information("Пользователь успешно добавлен !");
+                            App.context.User.Add(newUser);
+                            App.context.SaveChanges();
 
-                DialogResult = true;
+                            Feedback.Information("Пользователь успешно добавлен !");
 
+                            DialogResult = true;
+                }
             }
             catch (DbUpdateException dbUpdateException)
             {
@@ -63,7 +71,7 @@ namespace Hotel.View.Windows
                 Feedback.Error($"Ошибка при добавлении пользователя. {exception.Message}");
             }
             
-        }
+      }
 
 
     }
