@@ -5,8 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hotel.View.Windows"
         mc:Ignorable="d"
-        Title="Окно пользователя" Height="450" Width="800">
+        Title="Добавление пользователя" Height="300" Width="400" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="ФИО: "/>
+        <TextBlock Grid.Row="2" Text="Логин: "/>
+        <TextBlock Grid.Row="4" Text="Пароль: "/>
+        <TextBox Name="FullnameTb" Grid.Column="2"/>
+        <TextBox Name="LoginTb" Grid.Row="4" Grid.Column="2"/>
+        <PasswordBox Name="PasswordPb" Grid.Row="4" Grid.Column="2"/>
+        <Button Name="AddUaerBtn" Grid.Row="6" Grid.Column="2"
+                Content="Добавить" Click="AddUaerBtn_Click"/>
     </Grid>
 </Window>
