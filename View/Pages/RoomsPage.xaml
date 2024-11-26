@@ -71,7 +71,7 @@
                 
             </ListBox>
     
-            <Grid Name="UserDetailsGrid" Grid.Column="2" Margin="20">
+            <Grid Name="BookingDetailsGrid" Grid.Column="2" Margin="20">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*" />
                     <RowDefinition Height="10" />
@@ -88,7 +88,7 @@
                     <RowDefinition Height="1*" />
                     <RowDefinition Height="10" />
                     <RowDefinition Height="1*" />
-                    <RowDefinition Height="10" />
+                    <RowDefinition Height="100" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="140" />
@@ -96,7 +96,7 @@
                     <ColumnDefinition Width="1*" />
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.ColumnSpan="3" 
-                           Text="Информация о пользователе"
+                           Text="Оформление бронирования"
                            FontWeight="SemiBold"/>
 
                 <TextBlock Grid.Row="2" Text="Дата заезда:"/>
@@ -112,6 +112,10 @@
                           Grid.Column="2"/>
                 <Button Name="BookingBtn" Grid.Row="8" Grid.Column="2"
                         Content="Оформить" Click="BookingBtn_Click"/>
+                <TextBlock Grid.Row="10" Grid.ColumnSpan="3" 
+                           Text="История бронирований" FontWeight="SemiBold"/>
+                <ListBox Name="BookingHistoryLb" Grid.Row="12" 
+                         Grid.ColumnSpan="3"/>
             </Grid>
         </Grid>
 
