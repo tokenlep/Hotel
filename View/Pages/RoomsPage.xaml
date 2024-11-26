@@ -32,24 +32,40 @@
 
             <ListBox Name="RoomsLb" 
                      ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Border BorderThickness="1"
-                                BorderBrush="Black" 
-                                Width="80"
-                                Height="80">
-                            <TextBlock Text="{Binding Number}" 
-                                       VerticalAlignment="Center"
-                                       FontSize="24"
-                                       FontWeight="SemiBold"/>
-                        </Border>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel />
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderThickness="1"
+                                BorderBrush="Black" 
+                                Width="265"
+                                Margin="10">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="10" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="10" />
+                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="10" />
+                                    <RowDefinition Height="auto" />
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Text="{Binding Number, 
+                                    StringFormat={}№{0}}" FontSize="26"
+                                           FontWeight="SemiBold"/>
+                                <TextBlock Grid.Row="2" Text="{Binding Floor.Name}"/>
+                                <TextBlock Grid.Row="4" Text="{Binding Category.Name}" 
+                                           FontSize="16"/>
+                                <TextBlock Grid.Row="6" Text="{Binding Status.Name}"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                
             </ListBox>
     
             <Grid Name="UserDetailsGrid" Grid.Column="2" Margin="20">
