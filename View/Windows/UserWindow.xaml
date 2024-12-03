@@ -26,7 +26,7 @@
         <TextBlock Grid.Row="2" Text="Логин: "/>
         <TextBlock Grid.Row="4" Text="Пароль: "/>
         <TextBox Name="FullnameTb" Grid.Column="2"/>
-        <TextBox Name="LoginTb" Grid.Row="4" Grid.Column="2"/>
+        <TextBox Name="LoginTb" Grid.Row="2" Grid.Column="2"/>
         <PasswordBox Name="PasswordPb" Grid.Row="4" Grid.Column="2"/>
         <Button Name="AddUaerBtn" Grid.Row="6" Grid.Column="2"
                 Content="Добавить" Click="AddUaerBtn_Click"/>
