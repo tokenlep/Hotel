@@ -1,4 +1,6 @@
-﻿using Hotel.Model;
+﻿using Hotel.AppData;
+using Hotel.Model;
+using Hotel.View.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +34,11 @@ namespace Hotel.View.Pages
 
         private void AddUserBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            UserWindow userWindow = new UserWindow();
+            if(userWindow.ShowDialog() == true)
+            {
+                UsersLv.ItemsSource = App.context.User.ToList();
+            }
         }
 
         private void UsersLv_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -42,7 +48,8 @@ namespace Hotel.View.Pages
 
         private void SaveChangesBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            App.context.SaveChanges();
+            Feedback.Information("Информация успшно сохранена !");
         }
     }
 }
