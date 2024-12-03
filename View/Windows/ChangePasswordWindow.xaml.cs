@@ -26,13 +26,9 @@ namespace Hotel.View.Windows
             {
                 Feedback.Warning("Все поля обязательны для заполнения ! Заполните каждое поле !");
             }
-            else if (OldPasswordPb.Password != NewPasswordPb.Password)
-            {
-                Feedback.Error("Неверно введён текущий пароль! Попробуйте снова.");
-            }
             else if (NewPasswordPb.Password != AcceptNewPasswordPb.Password)
             {
-                Feedback.Error("Новые пароли не совподают ! Попробуйте снова.");
+                Feedback.Error("Новые пароли не совпадают ! Попробуйте снова.");
             }
             else if (OldPasswordPb.Password == NewPasswordPb.Password)
             {

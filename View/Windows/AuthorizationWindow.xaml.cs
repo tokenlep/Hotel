@@ -102,8 +102,8 @@ namespace Hotel.View.Windows
                 case 1: AdministratorWindow administratorWindow = new AdministratorWindow();
                     administratorWindow.Show();
                     break;
-                case 2: UserWindow userWindow = new UserWindow();
-                    userWindow.Show();
+                case 2: UsersWindow usersWindow = new UsersWindow();
+                    usersWindow.Show();
                     break;
                 default: Feedback.Error("Роль пользователя не найдена! Доступ запрещен.");
                     break;
