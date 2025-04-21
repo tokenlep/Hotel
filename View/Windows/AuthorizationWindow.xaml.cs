@@ -60,7 +60,7 @@ namespace Hotel.View.Windows
 
                 if(loginAttemptCount == 3)
                 {
-                    App.currentUser.IsBlocked = true;
+                    //App.currentUser.IsBlocked = true;
                     loginAttemptCount = 0;
                     Feedback.Error("Вы заблокированы ! Обратитесь к администратору !");
                 }
